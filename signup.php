@@ -33,7 +33,8 @@ if (isset($data['do_signup'])) {
         $user->email = $data['email'];
         $user->password = password_hash($data['password'], PASSWORD_DEFAULT);
         R::store($user);
-        echo '<div style="color: green">Вы успешно зарегистрированы!</div>';
+        echo '<div style="color: green">Вы успешно зарегистрированы!</div></a>';
+        echo '<a href="message.php"><div style="color: green">Перейдите на сайт!</div>';
     } else {
         echo '<div style="color: red">' . array_shift($errors) . '</div>';
 
@@ -41,7 +42,7 @@ if (isset($data['do_signup'])) {
 }
 ?>
 
-<form action="/message.php" method="POST">
+<form action="/signup.php" method="POST">
     <p><strong>Ваш логин:</strong></p>
     <p><input type="text" name="login" value="<?php echo @$data['login'] ?>"></p>
     <p><strong>Ваш email:</strong></p>
